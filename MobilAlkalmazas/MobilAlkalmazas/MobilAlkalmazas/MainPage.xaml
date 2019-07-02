@@ -4,11 +4,16 @@
              xmlns:local="clr-namespace:MobilAlkalmazas"
              x:Class="MobilAlkalmazas.MainPage">
 
-    <StackLayout>
+    <StackLayout Orientation="Horizontal">
         <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Label x:Name="label"
+               Text="Hello World"/>
+        <Entry Text="entry text" x:Name="entry"/>
+
+        <Button x:Name="button"
+                Text="click me"
+                Clicked="Button_Clicked"/>
+
     </StackLayout>
 
 </ContentPage>
