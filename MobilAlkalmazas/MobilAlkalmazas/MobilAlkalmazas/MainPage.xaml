@@ -4,15 +4,35 @@
              xmlns:local="clr-namespace:MobilAlkalmazas"
              x:Class="MobilAlkalmazas.MainPage">
 
-    <StackLayout Orientation="Horizontal">
+    <StackLayout>
         <!-- Place new controls here -->
-        <Label x:Name="label"
-               Text="Hello World"/>
-        <Entry Text="entry text" x:Name="entry"/>
+        <Label Text="ID"/>
+
+        <Entry x:Name="IdText" Text="{Binding CurrentPerson.ID, Mode=TwoWay}"/>
+
+        <Label Text="Name"/>
+
+        <Entry x:Name="NameText" Text="{Binding CurrentPerson.Name, Mode=TwoWay}"/>
+
+        <Label Text="Age"/>
+
+        <Entry x:Name="AgeText" Text="{Binding CurrentPerson.Age, Mode=TwoWay}"/>
 
         <Button x:Name="button"
-                Text="click me"
-                Clicked="Button_Clicked"/>
+                Text="Add"
+                Command="{Binding AddCommand}"/>
+
+        <ListView x:Name="peopleList"
+                  ItemsSource="{Binding People, Mode=OneWay}"
+                  ItemSelected="peopleList_ItemSelected">
+            <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Label Text="{Binding Name}"/>
+            </ViewCell>
+            </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
     </StackLayout>
 
